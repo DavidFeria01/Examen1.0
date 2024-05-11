@@ -7,20 +7,21 @@ import { Empleados } from '../interface/empleados';
   templateUrl: './empleados.component.html',
   styleUrls: ['./empleados.component.css']
 })
-export class EmpleadosComponent {
+export class EmpleadosComponent implements OnInit{
 
-  empleado:any[]=[];
+  empleado:Empleados[];
 
 
   constructor(public service_emp: EmpleadosService) { }
 
   ngOnInit(){
-    this.service_emp.getAllEmpleados();
+  
   }
   getAllEmpleados() {
-    this.service_emp.getAllEmpleados().subscribe(Empleados => {
+    this.service_emp.getAllEmpleados().subscribe(data => {
       console.log(Empleados);
-      this.empleado=[Empleados];
+      this.empleado=[];
+      this.empleado.push(data);
     });
   }
 

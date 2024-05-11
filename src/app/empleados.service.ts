@@ -9,11 +9,11 @@ import { Empleados } from './interface/empleados';
 export class EmpleadosService {
 
 
-private API= "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees";
+private API= 'https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees';
  
 constructor(private http:HttpClient){}
 
-getAllEmpleados():Observable<any>{
+getAllEmpleados():Observable<Empleados>{
   const path=`${this.API}/donald/`;
   return this.http.get<Empleados>(path);
 }
